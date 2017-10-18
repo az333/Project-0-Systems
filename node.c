@@ -43,3 +43,7 @@ struct node * remove_node (struct node *target) {
     target -> next -> prev = target -> prev;
     return target;
   }
+
+struct node * insert(struct node *, char *, char *){}
+
+struct node * random_song(struct node *){}
