@@ -13,12 +13,11 @@ int find_length (struct node *head) {
     return i;
 }
 
+
 //FINISHED
 //insert nodes in order (alphabetical by artist)
 void *add_song(char name[], char artist[]) {
-    srand(time(NULL));
-    lowerfy(artist);
-    table[artist[0] - 97] = insert_order(table[artist[0] - 97], name, artist);
+
 }
 
 //FINISHED (??)
