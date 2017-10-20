@@ -44,6 +44,7 @@ void print_songs (struct node * lib[], char * artist){
 
 //Shuffle - print out a series of randomly chosen songs.
 void shuffle(struct node * lib[], int num){
+  
 }
 
 
