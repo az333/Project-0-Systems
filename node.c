@@ -40,3 +40,7 @@ struct node * remove_node (struct node *target) {
     target = NULL;
     return target;
   }
+
+struct node * insert(struct node *, char *, char *){}
+
+struct node * random_song(struct node *){}

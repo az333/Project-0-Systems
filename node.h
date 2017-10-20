@@ -11,3 +11,6 @@ struct node * insert(struct node *, char *, char *);
 struct node * free_list (struct node *);
 struct node * remove_node (struct node *);
 struct node * find_song (struct node *, char *, char *);
+struct node * random_song(struct node *);
+struct node * 
+
