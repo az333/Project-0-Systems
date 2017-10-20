@@ -13,9 +13,11 @@ int find_length (struct node *head) {
     return i;
 }
 
+//FINISHED
 //insert nodes in order (alphabetical by artist)
-void *add_song(char name[], char artist[]) {
-
+void *add_song(char name[], char artist[], struct node * lib[]) {
+    srand(time(NULL));
+    
 }
 
 //FINISHED (??)
