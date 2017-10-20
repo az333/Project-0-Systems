@@ -5,12 +5,27 @@ struct node{
   struct node *prev;
 };
 
-void print_list(struct node *);
-struct node * insert_front(struct node *, char *, char *);
-struct node * insert(struct node *, char *, char *);
-struct node * free_list (struct node *);
-struct node * remove_node (struct node *);
-struct node * find_song (struct node *, char *, char *);
-struct node * random_song(struct node *);
-struct node * 
 
+//insert nodes at the front
+struct node * insert_front(struct node *, char *, char *);
+
+//insert nodes in order
+struct node * insert(struct node *, char *, char *);
+
+//print the entire list
+void print_list(struct node *);
+
+//find and return a pointer to a node based on artist and song name
+struct node * find_song_node (struct node *, char *, char *);
+
+//find and return a pointer to the first song of an artist based on artist name
+struct node * find_artist_node (struct node *, char *);
+
+//Return a pointer to random element in the list.
+struct node * random_song(struct node *);
+
+//remove a single specified node from the list
+struct node * remove_node (struct node *);
+
+//free the entire list
+struct node * free_list (struct node *);
