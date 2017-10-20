@@ -2,11 +2,6 @@
 #include <stdio.h>
 #include "node.h"
 
-//initialize the table to NULL
-void initialize_table () {
-  for (int i=0; i<26; i++) table[i] = NULL;
-}
-
 
 void print_list (struct node *head){
   while (head) {
@@ -41,5 +36,7 @@ struct node * find_artist (struct node *head, char * artist) {
 struct node * remove_node (struct node *target) {
     target -> prev -> next = target -> next;
     target -> next -> prev = target -> prev;
+    free(target);
+    target = NULL;
     return target;
   }
