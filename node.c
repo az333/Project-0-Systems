@@ -6,21 +6,26 @@
 //FINISHED
 //finds length of list
 int find_length (struct node *head) {
+  struct node * copy = head;
   int i = 0;
-    while(head){
-        head = head -> next;          i++;
-    }
-    return i;
+  while (copy) {
+    copy = copy -> next;
+    i ++
+      }
+  return i;
 }
 
-//FINISHED
-//insert nodes in order (alphabetical by artist)
-void *add_song(char name[], char artist[], struct node * lib[]) {
-    srand(time(NULL));
-    
+
+//insert nodes in order (alphabetical by artist, their songs alphabetical)
+struct node *insert(struct node * head, char * name, char * artist) {
+  struct node * new_fr = (struct node *) malloc( sizeof(struct node) );
+  new_fr -> name = name;
+  new_fr -> artist = artist;
+  new_fr -> next = head;
+  return new_fr;
 }
 
-//FINISHED (??)
+//FINISHED 
 //insert nodes at the front
 struct node * insert_front(struct node *head, char * name, char * artist){
   struct node *first = (struct node *)malloc(sizeof(struct node));
@@ -31,14 +36,14 @@ struct node * insert_front(struct node *head, char * name, char * artist){
   return first;
 }
 
-//FINISHED (??)
+//FINISHED 
 //remove a single specified node from the list
 struct node * remove_node (struct node *target) {
-    target -> prev -> next = target -> next;
-    target -> next -> prev = target -> prev;
-    free(target);
-    target = NULL;
-    return target;
+  target -> prev -> next = target -> next;
+  target -> next -> prev = target -> prev;
+  free(target);
+  target = NULL;
+  return target;
 }
 
 //FINISHED

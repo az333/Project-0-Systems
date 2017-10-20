@@ -18,7 +18,7 @@ void print_songs (struct node *[], char * artist);
 void print_library (struct node * []);
 
 //Shuffle - print out a series of randomly chosen songs.
-void print_random_songs(struct node * [], int);
+void shuffle(struct node * [], int);
 
 //Delete a song
 struct node * delete_song (struct node * [], char * name, char * artist);
