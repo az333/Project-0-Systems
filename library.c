@@ -10,14 +10,12 @@ struct node * add_song(struct node * lib[], char * name, char * artist){
   return insert (lib[letter], name, artist);
 }
 
-
 //FINISHED
 //Search for a song given song and artist name (return a pointer).
 struct node * find_song(struct node * lib[], char * name, char * artist){
   char letter = artist[0] - 97;
   return find_song_node(lib[letter], name, artist);
 }
-
 
 //FINISHED
 //Search for an artist (return a pointer).
@@ -33,13 +31,21 @@ void print_letter (struct node * lib[], char letter) {
   print_list(list[letter]);
 }
 
+//FINISHED
 //Print out all the songs of a certain artist
 void print_songs (struct node * lib[], char * artist){
-  char letter = *artist - 97;
-  struct node * start = find_artist(lib[letter], artist);
-
-  
+  struct node *start = find_artist(arr,artist);
+    while(start && strcmp(artist,start->artist) == 0){
+        printf("%s by %s, ",start->name,start->artist);
+        start = start->next;
+    }
+    printf("\n");
 }
+
+//Shuffle - print out a series of randomly chosen songs.
+void print_random_songs(struct node * lib[], int num){
+}
+
 
 //FINISHED
 //Print out the entire library.
@@ -49,10 +55,6 @@ void print_library (struct node * lib[]){
     print_letter(lib, i);
     printf ("\n");
   }
-}
-
-//Shuffle - print out a series of randomly chosen songs.
-void print_random_songs(struct node * lib[], int num){
 }
 
 //FINISHED
