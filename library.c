@@ -38,8 +38,7 @@ void print_songs (struct node * lib[], char * artist){
   char letter = *artist - 97;
   struct node * start = find_artist(lib[letter], artist);
 
-
-
+  
 }
 
 //FINISHED
