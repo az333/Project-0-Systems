@@ -18,11 +18,7 @@ int find_length (struct node *head) {
 
 //insert nodes in order (alphabetical by artist, their songs alphabetical)
 struct node *insert(struct node * head, char * name, char * artist) {
-  struct node * new_fr = (struct node *) malloc( sizeof(struct node) );
-  new_fr -> name = name;
-  new_fr -> artist = artist;
-  new_fr -> next = head;
-  return new_fr;
+ 
 }
 
 //FINISHED 
@@ -30,6 +26,7 @@ struct node *insert(struct node * head, char * name, char * artist) {
 struct node * insert_front(struct node *head, char * name, char * artist){
   struct node *first = (struct node *)malloc(sizeof(struct node));
   first -> prev = NULL;
+  //first-> prev = head.prev;
   first -> next = head;
   first -> name = name;
   first -> artist = artist;
