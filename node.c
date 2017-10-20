@@ -1,26 +1,24 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include "node.h"
 
+//FINISHED
 //finds length of list
 int find_length (struct node *head) {
-  struct node * copy = head;
   int i = 0;
-  while (copy) {
-    copy = copy -> next;
-    i ++
-  }
-  return i;
+    while(head){
+        head = head -> next;          i++;
+    }
+    return i;
 }
 
 //FINISHED
-//print the entire list
-void print_list (struct node *head){
-  while (head) {
-    printf ("Artist: '%s', Name: '%s' | ", head -> name, head -> artist);
-    head = head -> next;
-  }
-  printf("\n");
+//insert nodes in order (alphabetical by artist)
+void *add_song(char name[], char artist[]) {
+    srand(time(NULL));
+    lowerfy(artist);
+    table[artist[0] - 97] = insert_order(table[artist[0] - 97], name, artist);
 }
 
 //FINISHED (??)
@@ -32,6 +30,26 @@ struct node * insert_front(struct node *head, char * name, char * artist){
   first -> name = name;
   first -> artist = artist;
   return first;
+}
+
+//FINISHED (??)
+//remove a single specified node from the list
+struct node * remove_node (struct node *target) {
+    target -> prev -> next = target -> next;
+    target -> next -> prev = target -> prev;
+    free(target);
+    target = NULL;
+    return target;
+}
+
+//FINISHED
+//print the entire list
+void print_list (struct node *head){
+  while (head) {
+    printf ("Artist: '%s', Name: '%s' | ", head -> name, head -> artist);
+    head = head -> next;
+  }
+  printf("\n");
 }
 
 //FINISHED
@@ -56,21 +74,6 @@ struct node * find_artist (struct node *head, char * artist) {
     head = head -> next;
   }
   return head;
-}
-
-//FINISHED (??)
-//remove a single specified node from the list
-struct node * remove_node (struct node *target) {
-    target -> prev -> next = target -> next;
-    target -> next -> prev = target -> prev;
-    free(target);
-    target = NULL;
-    return target;
-  }
-
-//insert nodes in order (alphabetical by artist)
-struct node * insert(struct node * head, char * name, char * artist){
-  return head; 
 }
 
 //FINISHED
