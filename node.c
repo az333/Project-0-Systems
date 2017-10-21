@@ -33,7 +33,7 @@ struct node * insert(struct node * head, char * name, char * artist) {
     return insert_front(head, name, artist);
   }
   struct node * location = find_place (head, name, artist);
-  if (strcmp(name, location -> name) < 0) {
+  if (strcmp(artist, location -> artist) == 0 && strcmp(name, location -> name) < 0) {
     if (location -> prev) {
       location = location -> prev;
     }
@@ -50,11 +50,10 @@ struct node * find_place (struct node * head, char * name, char * artist) {
     }
     if (!(strcmp(artist, head -> artist))) { //new artist is the same as the current artist
       //printf ("TRUE\n");
-      while (head -> next && strcmp(name, head -> next -> name) > 0) { //new name is alphabetically later than current name
+      while (head -> next && !strcmp(artist, head -> next -> artist) && strcmp(name, head -> next -> name) > 0) { //new name is alphabetically later than current name
         head = head -> next;
       }
     }
-
   return head;
 }
 
