@@ -9,7 +9,7 @@ int main () {
 
    srand(time(NULL));
    struct node * head = create_node ("song2", "artist2");
-   //printf ("HEAD ADDRESS: %p\n", head);
+
    printf("////////// LINKED LIST TESTS ////////// \n\n");
    printf("============================\n");
    printf("Testing print_list() .... \n\n");
@@ -31,8 +31,8 @@ int main () {
    head = insert(head,"song3","artist3");
    head = insert(head,"song5","artist5");
    head = insert(head,"song","artist");
-   //head = insert(head,"blah","blach");
-   //head = insert(head,"abc","blach");
+   head = insert(head,"blah","blach");
+   head = insert(head,"abc","blach");
    print_list(head);
    printf("List length: %d\n",find_length(head));
 
@@ -67,13 +67,11 @@ int main () {
 
    printf("\nRemoved [song2, artist2] from list:\n");
    struct node * gone2 = find_song(head, "song2", "artist2");
-   //printf("GONE2 PREV: %s by %s\n", gone2 -> prev -> name, gone2 -> prev -> artist);
    head = remove_node(head, gone2);
    print_list(head);
 
    printf("\nRemoved [song5, artist5] from list:\n");
    struct node * gone3 = find_song(head, "song5", "artist5");
-   //printf("GONE3 PREV: %s by %s\n", gone3 -> prev -> name, gone3 -> prev -> artist);
    head = remove_node(head, gone3);
    print_list(head);
 
@@ -110,7 +108,6 @@ int main () {
    add_song(lib,"abc", "cama");
    add_song(lib,"love song", "us");
    add_song(lib,"sad song","casim");
-   //printf("it should print out 8 entries in order:\n");
    print_library(lib);
 
 

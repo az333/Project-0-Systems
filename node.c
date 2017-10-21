@@ -12,7 +12,7 @@ struct node * create_node (char * name, char * artist) {
   this -> artist = artist;
   return this;
 }
-//FINISHED
+
 //finds length of list
 int find_length (struct node *head) {
   int i;
@@ -22,7 +22,6 @@ int find_length (struct node *head) {
   return i;
 }
 
-//FINISHED
 //insert nodes in order (alphabetical by artist)
 struct node * insert(struct node * head, char * name, char * artist) {
   if (head == NULL) {
@@ -56,7 +55,6 @@ struct node * find_place (struct node * head, char * name, char * artist) {
   return head;
 }
 
-
 struct node * insert_after (struct node * head, struct node* location, char * name, char * artist) {
     struct node * this = create_node (name, artist);
     if (location -> next != NULL) {
@@ -65,12 +63,9 @@ struct node * insert_after (struct node * head, struct node* location, char * na
     }
       this -> prev = location;
       location -> next = this;
-
     return head;
 }
 
-
-//FINISHED (??)
 //insert nodes at the front
 struct node * insert_front(struct node *head, char * name, char * artist){
   struct node * first = create_node (name, artist);
@@ -80,9 +75,6 @@ struct node * insert_front(struct node *head, char * name, char * artist){
   return first;
 }
 
-
-
-//FINISHED (??)
 //remove a single specified node from the list
 struct node * remove_node (struct node * head, struct node *target) {
   if(head == NULL || target == NULL){
@@ -99,18 +91,15 @@ struct node * remove_node (struct node * head, struct node *target) {
   return head;
 }
 
-//FINISHED
 //print the entire list
 void print_list (struct node *head){
   while (head) {
-    //printf ("HEAD ADDRESS: %p\n", head);
     printf ("Artist: '%s', Name: '%s' | ", head -> artist, head -> name);
     head = head -> next;
   }
   printf("\n");
 }
 
-//FINISHED
 //find and return a pointer to a node based on artist and song name
 struct node * find_song (struct node *head, char * name, char * artist) {
   while (head) {
@@ -122,7 +111,6 @@ struct node * find_song (struct node *head, char * name, char * artist) {
   return head;
 }
 
-//FINISHED
 //find and return a pointer to the first song of an artist based on artist name
 struct node * find_artist (struct node *head, char * artist) {
   while (head) {
@@ -134,7 +122,6 @@ struct node * find_artist (struct node *head, char * artist) {
   return head;
 }
 
-//FINISHED
 //Return a pointer to random element in the list.
 struct node * random_song(struct node * head){
   int length = find_length(head);
@@ -146,7 +133,6 @@ struct node * random_song(struct node * head){
   return head;
 }
 
-//FINISHED
 //free the entire list
 struct node * free_list (struct node * p){
   struct node *head = p;

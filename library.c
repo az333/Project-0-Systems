@@ -4,42 +4,32 @@
 #include "node.h"
 #include "library.h"
 
-//FINISHED
 //Add song nodes.
 struct node * add_song(struct node * lib[], char * name, char * artist){
   int index = *artist - 97;
-  //printf ("%d\n", index);
-  //print_list(lib[index]);
   lib[index] = insert (lib[index], name, artist);
-  //print_list(lib[index]);
   return lib[index];
 }
 
-//FINISHED
 //Search for a song given song and artist name (return a pointer).
 struct node * give_song(struct node * lib[], char * name, char * artist){
   int index = *artist - 97;
   return find_song(lib[index], name, artist);
 }
 
-//FINISHED
 //Search for an artist (return a pointer).
 struct node * give_artist (struct node * lib[], char * artist){
   int index = *artist - 97;
   return find_artist(lib[index], artist);
 }
 
-//FINISHED
 //Print out all the entries under a certain letter.
 void print_letter (struct node * lib[], char letter) {
-  if(!lib[letter-97]){
-    return;
-  }
+  if(!lib[letter-97]){ return; }
   printf ("%c list \n", letter);
   print_list(lib[letter - 97]);
 }
 
-//FINISHED
 //Print out all the songs of a certain artist
 void print_songs (struct node * lib[], char * artist){
   int index = *artist- 97;
@@ -51,7 +41,6 @@ void print_songs (struct node * lib[], char * artist){
     printf("\n");
 }
 
-//FINISHED
 //Shuffle - print out a series of randomly chosen songs.
 void shuffle (struct node * lib[], int num){
   int i = rand() % 26;
@@ -65,7 +54,6 @@ void shuffle (struct node * lib[], int num){
   printf ("\n");
 }
 
-//FINISHED
 //Print out the entire library.
 void print_library (struct node * lib[]){
   int i;
@@ -74,7 +62,6 @@ void print_library (struct node * lib[]){
   }
 }
 
-//FINISHED
 //Delete a song
 struct node * delete_song (struct node * lib[], char * name, char * artist){
   struct node * song = find_song (lib[*artist - 97], name, artist);
@@ -82,7 +69,6 @@ struct node * delete_song (struct node * lib[], char * name, char * artist){
   return remove_node(lib[index], song);
 }
 
-//FINISHED
 //Delete all the nodes.
 void delete_library(struct node * lib[]){
   int i;

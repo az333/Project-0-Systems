@@ -5,7 +5,6 @@ struct node{
   struct node *prev;
 };
 
-
 //insert nodes at the front
 struct node * insert_front(struct node *, char *, char *);
 
