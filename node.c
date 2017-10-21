@@ -49,7 +49,6 @@ struct node * find_place (struct node * head, char * name, char * artist) {
       head = head -> next;
     }
     if (!(strcmp(artist, head -> artist))) { //new artist is the same as the current artist
-      //printf ("TRUE\n");
       while (head -> next && !strcmp(artist, head -> next -> artist) && strcmp(name, head -> next -> name) > 0) { //new name is alphabetically later than current name
         head = head -> next;
       }

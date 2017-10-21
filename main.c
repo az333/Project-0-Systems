@@ -135,7 +135,7 @@ int main () {
 
    printf("============================\n");
    printf("Testing search function ...\n\n");
-   printf("Searched for twinkly by angelica and got: \n");
+   printf("Searched for twinkle by angelica and got: \n");
    struct node * search = give_song(lib, "twinkle","angelica");
    printf("%s by %s \n",search-> name, search-> artist);
 
