@@ -37,6 +37,8 @@ struct node * find_place (struct node * head, char * name, char * artist);
 
 struct node * insert_after (struct node * head, struct node* location, char * name, char * artist);
 
+struct node * insert_before (struct node * head, struct node *location, char *name, char *artist);
+
 struct node * create_node (char * name, char * artist);
 
 int find_length (struct node * head);

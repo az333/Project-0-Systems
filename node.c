@@ -16,9 +16,7 @@ struct node * create_node (char * name, char * artist) {
 //finds length of list
 int find_length (struct node *head) {
   int i;
-  for(i = 0; head; i ++){
-    head = head -> next;
-  }
+  for(i = 0; head; i ++) head = head -> next;
   return i;
 }
 
@@ -32,26 +30,18 @@ struct node * insert(struct node * head, char * name, char * artist) {
     return insert_front(head, name, artist);
   }
   struct node * location = find_place (head, name, artist);
-  if (strcmp(artist, location -> artist) == 0 && strcmp(name, location -> name) < 0) {
-    if (location -> prev) {
-      location = location -> prev;
-    }
-    head = insert_front (head, name, artist);
-    return head;
+  if (!strcmp(artist, location -> artist) && strcmp(name, location -> name) < 0) {
+    return insert_before(head, location, name, artist);
   }
   return insert_after (head, location, name, artist);
 }
 
 //the given song should go right after the node that this function returns
 struct node * find_place (struct node * head, char * name, char * artist) {
-    while (head -> next && strcmp(artist, head -> next -> artist) > 0) {
-      head = head -> next;
-    }
-    if (!(strcmp(artist, head -> artist))) { //new artist is the same as the current artist
-      while (head -> next && !strcmp(artist, head -> next -> artist) && strcmp(name, head -> next -> name) > 0) { //new name is alphabetically later than current name
-        head = head -> next;
-      }
-    }
+  //new artist is alphabetically later than current artist
+  while (head -> next && strcmp(artist, head -> next -> artist) > 0) head = head -> next;
+  // artist is the same but new name is alphabetically later than current name
+  while (head -> next && !strcmp(artist, head -> next -> artist) && strcmp(name, head -> next -> name) > 0) head = head -> next;
   return head;
 }
 
@@ -64,6 +54,11 @@ struct node * insert_after (struct node * head, struct node* location, char * na
       this -> prev = location;
       location -> next = this;
     return head;
+}
+
+struct node * insert_before (struct node * head, struct node *location, char *name, char *artist) {
+  if (location -> prev) return insert_after (head, location -> prev, name, artist);
+  return insert_front (head, name, artist);
 }
 
 //insert nodes at the front
